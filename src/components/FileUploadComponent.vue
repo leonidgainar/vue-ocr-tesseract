@@ -58,7 +58,7 @@ export default {
     uploadImage() {
       this.$emit("start-loading-image");
       let image = null;
-      const _this = this;
+
       var reader = new FileReader();
 
       reader.readAsDataURL(this.file[0]);
@@ -67,6 +67,7 @@ export default {
         image = e.target.result;
       };
 
+      const _this = this;
       reader.onloadend = function () {
         if (reader.readyState === 2) {
           _this.recognizeTextFromImage(image);

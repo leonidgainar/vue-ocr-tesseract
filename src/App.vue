@@ -13,13 +13,19 @@
           </v-col>
         </v-row>
         <v-row class="mt-5" justify="center">
-          <v-col v-if="loadedImage" cols="11" sm="6">
+          <v-col cols="11" sm="6">
             <h3 class="text-center">Loaded image:</h3>
             <v-img contain :src="loadedImage" />
           </v-col>
-          <v-col v-if="recognizedText" cols="11" sm="6">
+          <v-col cols="11" sm="6">
             <h3 class="text-center">Recognized text:</h3>
-            <div class="text-justify mt-2">{{ recognizedText }}</div>
+            <v-textarea
+              name="recognized-text"
+              label="Text from loaded image"
+              filled
+              auto-grow
+              v-model="recognizedText"
+            ></v-textarea>
           </v-col>
         </v-row>
       </v-container>
