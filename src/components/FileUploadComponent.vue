@@ -12,11 +12,11 @@
         ></v-radio>
       </v-radio-group>
       <v-file-input
-        :rules="rules"
         accept="image/png, image/jpeg, image/bmp"
         label="Upload image with text"
         show-size
         v-model="file"
+        prepend-icon="camera"
         persistent-clear
       ></v-file-input>
     </v-col>
@@ -41,10 +41,6 @@ export default {
   data: () => ({
     file: null,
     isLoading: false,
-    rules: [
-      (value) =>
-        !value || value.size < 2000000 || "Image size should be less than 2 MB!"
-    ],
     languages: [
       { label: "English", value: "eng" },
       { label: "Romanian", value: "ron" },
