@@ -15,7 +15,7 @@
         <v-row class="mt-5" justify="center">
           <v-col cols="11" sm="6">
             <h3 class="text-center">Loaded image:</h3>
-            <v-img contain :src="loadedImage" />
+            <v-img v-if="loadedImage" contain :src="loadedImage" />
           </v-col>
           <v-col cols="11" sm="6">
             <h3 class="text-center">Recognized text:</h3>
