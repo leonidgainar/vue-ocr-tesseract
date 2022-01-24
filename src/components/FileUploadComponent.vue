@@ -1,6 +1,16 @@
 <template>
   <v-row class="text-center">
     <v-col cols="12">
+      <h2 class="text-left">Select language:</h2>
+      <v-radio-group v-model="currentLanguage">
+        <v-radio
+          v-for="language in languages"
+          :key="language.value"
+          :label="language.label"
+          :value="language.value"
+          color="indigo"
+        ></v-radio>
+      </v-radio-group>
       <v-file-input
         :rules="rules"
         accept="image/png, image/jpeg, image/bmp"
@@ -34,7 +44,14 @@ export default {
     rules: [
       (value) =>
         !value || value.size < 2000000 || "Image size should be less than 2 MB!"
-    ]
+    ],
+    languages: [
+      { label: "English", value: "eng" },
+      { label: "Romanian", value: "ron" },
+      { label: "Russian", value: "rus" },
+      { label: "French", value: "fra" }
+    ],
+    currentLanguage: "eng"
   }),
 
   methods: {
@@ -63,8 +80,8 @@ export default {
       const worker = createWorker();
 
       await worker.load();
-      await worker.loadLanguage("eng");
-      await worker.initialize("eng");
+      await worker.loadLanguage(this.currentLanguage);
+      await worker.initialize(this.currentLanguage);
       const {
         data: { text }
       } = await worker.recognize(image);
