@@ -8,7 +8,7 @@
           :key="language.value"
           :label="language.label"
           :value="language.value"
-          color="indigo"
+          color="primary"
         ></v-radio>
       </v-radio-group>
       <v-file-input
@@ -16,8 +16,6 @@
         label="Upload image with text"
         show-size
         v-model="file"
-        prepend-icon="camera"
-        persistent-clear
       ></v-file-input>
     </v-col>
     <v-col justify="center">
